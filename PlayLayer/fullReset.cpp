@@ -3,10 +3,10 @@ void PlayLayer::fullReset()
 {
     cocos2d::CCSize winSize = cocos2d::CCDirector::sharedDirector()->getWinSize();
 
-    this->m_fSteps = 0.0f;
+    this->setSteps(0.0f);
     this->setAttempts(0);
     this->setJumps(0);
-    this->m_bCleanReset = true;
+    this->setCleanReset(true);
 
     if( this->m_bPracticeMode )
         this->togglePracticeMode(false);

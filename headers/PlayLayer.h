@@ -109,12 +109,25 @@ public:
     CREATE_GET_SET(Jumps, PlayLayer, int, n)
     CREATE_GET_SET(ActiveEnterEffect, PlayLayer, int, e) // todo: handle enum
 
+    CREATE_GET_SET(Steps, PlayLayer, float, f)
+    CREATE_GET_SET(Camera, PlayLayer, cocos2d::CCPoint, ob)
+    
+    CREATE_GET_SET(CleanReset, PlayLayer, bool, b)
+    CREATE_GET_SET(PracticeMode, PlayLayer, bool, b)
+    CREATE_GET_SET(TestMode, PlayLayer, bool, b)
 
+    CREATE_GET_SET(ActiveBGColour, PlayLayer, cocos2d::_ccColor3B, c)
+    
     CREATE_GET_SET(Player, PlayLayer, PlayerObject*, p);
     CREATE_GET_SET(Level, PlayLayer, GJGameLevel*, p);
     CREATE_GET_SET(AudioEffectsLayer, PlayLayer, AudioEffectsLayer*, p)
     CREATE_GET_SET(UILayer, PlayLayer, UILayer*, p);
     CREATE_GET_SET(LevelSettings, PlayLayer, LevelSettingsObject*, p);
+    CREATE_GET_SET(GEM, PlayLayer, GameEfectsManager*, p)
+    CREATE_GET_SET(BatchNode, PlayLayer, cocos2d::CCSpriteBatchNode*, p)
+    CREATE_GET_SET(BatchNodeAdd, PlayLayer, cocos2d::CCSpriteBatchNode*, p)
+    CREATE_GET_SET(GameLayer, PlayLayer, cocos2d::CCLayer*, p)
+
 
 
 

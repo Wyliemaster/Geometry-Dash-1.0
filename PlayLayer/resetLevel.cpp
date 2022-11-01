@@ -15,7 +15,7 @@ void PlayLayer::resetLevel()
     this->m_bMoveCameraX = false;
     this->m_bMoveCameraY = false;
 
-    this->m_bSomeBool = this->m_bCleanReset;
+    this->m_bSomeBool = this->getCleanReset();
     this->m_bPlayerDestroyed = false;
 
     for (size_t i = 0; i < field_19C->count(); i++) // type is unknown so cannot find the function
@@ -53,7 +53,7 @@ void PlayLayer::resetLevel()
     this->updateCamera(0.0f);
     this->updateVisibility();
 
-    this->m_bCleanReset = false;
+    this->setCleanReset(false);
 
     this->tintBackground(this->getLevelSettings->getStartBGColor(), false);
     this->tintGround(this->getLevelSettings()->getStartGColor(), false);
@@ -67,7 +67,7 @@ void PlayLayer::resetLevel()
 
     level->setAttempts(level->getAttempts() + 1);
 
-    if(!this->m_bPracticeMode || this->m_bTestMode)
+    if(!this->getPracticeMode() || this->getTestMode())
     {
         CocosDenshion::SimpleAudioEngine *SAE = CocosDenshion::SimpleAudioEngine::sharedEngine();
         if( this->getPlayer()->getPosition().x > 0.0f)

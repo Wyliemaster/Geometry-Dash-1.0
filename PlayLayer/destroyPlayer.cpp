@@ -2,7 +2,7 @@
 
 void PlayLayer::destroyPlayer()
 {
-    float temp = 0.0f;
+    float percentage = 0.0f;
 
     if(!this->getPlayer()->getIsLocked() && !this->m_bPlayerDestroyed)
     {
@@ -20,7 +20,7 @@ void PlayLayer::destroyPlayer()
 
         this->getPlayer()->playerDestroyed();
 
-        if (!this->m_bPracticeMode)
+        if (!this->getPracticeMode())
         {
             CocosDenshion::SimpleAudioEngine::sharedEngine()->stopBackgroundMusic(false);
         }
@@ -33,15 +33,15 @@ void PlayLayer::destroyPlayer()
             0
             )->runAction();
 
-        if (!this->m_bTestMode)
+        if (!this->getTestMode())
         {
-            temp = (this->getPlayer()->getPosition().x / this->m_fEndOfLevel) * 100.0f;
-            this->getLevel()->savePercentage(temp, this->m_bPracticeMode);
+            percentage = (this->getPlayer()->getPosition().x / this->m_fEndOfLevel) * 100.0f;
+            this->getLevel()->savePercentage(percentage, this->getPracticeMode());
         }
 
         if (this->getLevel()->getLevelType() = LevelType::kLevelTypeMain)
         {
-            GameManager::sharedState()->reportPercentageForLevel(this->getLevel()->getLevelID(), temp, this->m_bPracticeMode);
+            GameManager::sharedState()->reportPercentageForLevel(this->getLevel()->getLevelID(), percentage, this->getPracticeMode());
         }
 
     }
