@@ -35,7 +35,7 @@ void PlayLayer::destroyPlayer()
 
         if (!this->m_bTestMode)
         {
-            temp = (this->getPlayer()->getPosition().x / this->field_1CC) * 100.0f;
+            temp = (this->getPlayer()->getPosition().x / this->m_fEndOfLevel) * 100.0f;
             this->getLevel()->savePercentage(temp, this->m_bPracticeMode);
         }
 
