@@ -8,3 +8,8 @@ enum GameObjectType
     kYellowJumpPad = 9,
     kYellowJumpRing,
 }
+
+enum LevelType
+{
+    kLevelTypeMain = 1
+}
