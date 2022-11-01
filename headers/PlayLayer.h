@@ -100,6 +100,7 @@ public:
     void stopCameraShake();
     void updateCamera(float);
     void updateVisibility();
+    void checkSpawnObjects();
 
     int sectionForPos(cocos2d::CCPoint);
 
