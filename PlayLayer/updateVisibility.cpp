@@ -16,40 +16,36 @@ void PlayLayer::updateVisibility()
             if (i < this->m_pSections->count())
             {
                 cocos2d::CCArray *section = dynamic_cast<cocos2d::CCArray *>(this->m_pSections->objectAtIndex(i));
-                for (size_t j = 0;; j++)
+                for (size_t j = 0; j < section->count(); j++)
                 {
 
-                    if (j < section->count())
+                    GameObject *obj = section->objectAtIndex(j);
+
+                    obj->activateObject();
+
+                    if (obj->getType() == GameObjectType::kBallFrame || obj->getType() == GameObjectType::kYellowJumpRing)
+                        obj->setScale(this->getAudioEffectsLayer()->getAudioScale())
+
+                            cocos2d::CCPoint pos = obj->getRealPosition();
+
+                    float unk2 = 0.0f;
+
+                    if (obj->getType() == GameObjectType::kTransparent)
                     {
-                        GameObject *obj = section->objectAtIndex(j);
+                        unk2 = obj->getTextureRect().origin.x * obj->getScaleX() * 0.4f;
+                    }
 
-                        obj->activateObject();
+                    unsigned char opacity = this->getRelativeMod(pos, unk, unk2) * 255.0f;
 
-                        if (obj->getType() == GameObjectType::kBallFrame || obj->getType() == GameObjectType::kYellowJumpRing)
-                            obj->setScale(this->getAudioEffectsLayer()->getAudioScale())
-
-                                cocos2d::CCPoint pos = obj->getRealPosition();
-
-                        float unk2 = 0.0f;
-
-                        if (obj->getType() == GameObjectType::kTransparent)
-                        {
-                            unk2 = obj->getTextureRect().origin.x * obj->getScaleX() * 0.4f;
-                        }
-
-                        unsigned char opacity = this->getRelativeMod(pos, unk, unk2) * 255.0f;
-
-                        if (!obj->getDontTransform())
-                        {
-                            obj->setOpacity(opacity);
-                            this->applyEnterEffect(obj);
-                        }
+                    if (!obj->getDontTransform())
+                    {
+                        obj->setOpacity(opacity);
+                        this->applyEnterEffect(obj);
                     }
                 }
             }
         }
     }
-
 
     // deactivates the stuff already passed to optimise memory or something ig
     for (size_t i = this->m_nPrevSection; i < this->m_nNextSection; i++)
@@ -59,11 +55,8 @@ void PlayLayer::updateVisibility()
             if (i < this->m_pSections->count())
             {
                 cocos2d::CCArray *section = dynamic_cast<cocos2d::CCArray *>(this->m_pSections->objectAtIndex(i));
-                for (size_t j = 0;; j++)
+                for (size_t j = 0; j < section->count(); j++)
                 {
-                    if (j >= section->count())
-                        break;
-
                     dynamic_cast<GameObject *>(section->objectAtIndex(j))->deactivateObject();
                 }
             }
