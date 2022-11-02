@@ -101,6 +101,8 @@ public:
     void updateCamera(float);
     void updateVisibility();
     void checkSpawnObjects();
+    void removeLastCheckpoint();
+    void removeObjectFromSection(GameObject*);
 
     int sectionForPos(cocos2d::CCPoint);
 
