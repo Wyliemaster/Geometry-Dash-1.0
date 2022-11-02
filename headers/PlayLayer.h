@@ -37,7 +37,7 @@ public:
   float m_fGroundBottomStartPos;
   float m_fGroundTopStartPos;
   bool m_bPlayerDestroyed;
-  bool m_bSomeBool;
+  bool m_bFirstAttempt;
   bool m_bMoveCameraX;
   bool m_bMoveCameraY;
   int field_1B8;
@@ -97,13 +97,12 @@ public:
     void toggleGlitter(bool);
     void togglePracticeMode(bool);
     void update(float);
+    void updateVisibility();
 
     void playGravityEffect(bool);
     void animateOutGround(bool);
-    void switchToFlyMode(GameObject*, bool);
     void stopCameraShake();
     void updateCamera(float);
-    void updateVisibility();
 
     int sectionForPos(cocos2d::CCPoint);
 
