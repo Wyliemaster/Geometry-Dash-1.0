@@ -3,7 +3,7 @@
 
 #include "includes.h"
 
-struct PlayLayer : cocos2d::CCLayer
+struct PlayLayer : public cocos2d::CCLayer
 {
 public:
   float m_fCameraYCenter;
@@ -28,9 +28,9 @@ public:
   cocos2d::CCArray *m_pSections;
   cocos2d::CCArray *m_pHazards;
   cocos2d::CCArray *m_pActiveObjects;
-  cocos2d::CCArray *field_194;
+  cocos2d::CCArray *m_pObjectsToSpawn;
   cocos2d::CCArray *m_pSpawnObjects;
-  cocos2d::CCArray *field_19C;
+  cocos2d::CCArray *m_pObjects;
   cocos2d::CCArray *m_pStateObjects;
   cocos2d::CCParticleSystemQuad *m_pGlitter;
   AudioEffectsLayer *m_pAudioEffectsLayer;
@@ -40,7 +40,7 @@ public:
   bool m_bFirstAttempt;
   bool m_bMoveCameraX;
   bool m_bMoveCameraY;
-  int field_1B8;
+  int PAD;
   int m_nPrevSection;
   int m_nNextSection;
   int m_nRodType;
@@ -52,34 +52,22 @@ public:
   float m_fShakeIntensity;
   bool m_bLevelComplete;
   bool m_bShowedHint;
-  char field_1E2;
-  char field_1E3;
   int m_pEffectsManager;
   UILayer *m_pUILayer;
   PlayerObject *m_pPlayer;
   GJGameLevel *m_pLevel;
   cocos2d::CCPoint m_obCamera;
-  int gap1FC;
-  int field_200;
-  int field_204;
-  int field_208;
+  int PAD2[4];
   cocos2d::CCPoint m_obCameraTo;
   bool m_bTestMode;
   bool m_bPracticeMode;
-  char field_216;
-  char field_217;
   cocos2d::CCSpriteBatchNode *m_pBatchNode;
   cocos2d::CCSpriteBatchNode *m_pBatchNodeAdd;
   cocos2d::CCLayer *m_pGameLayer;
   cocos2d::_ccColor3B m_cActiveBGColour;
   bool m_bCleanReset;
   cocos2d::CCPoint m_obStartPos;
-  int field_230;
-  int field_234;
-  int field_238;
-  int field_23C;
-  int field_240;
-  int field_244;
+  int PAD3[6];
   int m_nAttempts;
   int m_nJumps;
   float m_fSteps;
