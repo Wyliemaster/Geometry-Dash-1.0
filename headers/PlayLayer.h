@@ -41,8 +41,8 @@ public:
   bool m_bMoveCameraX;
   bool m_bMoveCameraY;
   int field_1B8;
-  int m_nSomeSectionThing;
-  int m_nSomeSectionThing22;
+  int m_nPrevSection;
+  int m_nNextSection;
   int m_nRodType;
   cocos2d::_ccColor3B m_cGroundCol;
   float m_fEndOfLevel;
@@ -86,23 +86,24 @@ public:
 
 public:
 
-    void destroyPlayer();
     void checkCollisions(float);
-    void playGravityEffect(bool);
+    void checkSpawnObjects();
+    void destroyPlayer();
+    void fullReset();
+    void removeLastCheckpoint();
+    void removeObjectFromSection(GameObject*);
+    void resetLevel();
     void switchToFlyMode(GameObject*, bool);
     void toggleGlitter(bool);
-    void animateOutGround(bool);
-    void update(float);
-    void switchToFlyMode(GameObject*, bool);
-    void fullReset();
-    void resetLevel();
     void togglePracticeMode(bool);
+    void update(float);
+
+    void playGravityEffect(bool);
+    void animateOutGround(bool);
+    void switchToFlyMode(GameObject*, bool);
     void stopCameraShake();
     void updateCamera(float);
     void updateVisibility();
-    void checkSpawnObjects();
-    void removeLastCheckpoint();
-    void removeObjectFromSection(GameObject*);
 
     int sectionForPos(cocos2d::CCPoint);
 

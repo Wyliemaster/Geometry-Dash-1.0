@@ -1,4 +1,4 @@
-
+#include <cmath>
 #include <cstdint>
 #include "enums.h"
 #include "defines.h"
